@@ -6,6 +6,16 @@ import java.util.List;
 
 public interface EmployeeService {
 
+    Employee add(String nameEmployee,
+                 String surnameEmployee,
+                 String lastnameEmployee,
+                 int departmentEmployee,
+                 double salaryEmployee);
+
+    Employee remove(int idEmployee);
+
+    Employee find(int idEmployee);
+
     List<Employee> findAll();
 
 }

@@ -6,6 +6,7 @@ public class Employee {
     private String lastnameEmployee;
     private int departmentEmployee;
     private double salaryEmployee;
+
     private final int idEmployee;
     private static int idCounter = 0; // Счечик для выдачи id сотруднику
 
@@ -63,6 +64,10 @@ public class Employee {
 
     public void setSalaryEmployee(double salaryEmployee) {
         this.salaryEmployee = salaryEmployee;
+    }
+
+    public int getIdEmployee() {
+        return idEmployee;
     }
 
     @Override

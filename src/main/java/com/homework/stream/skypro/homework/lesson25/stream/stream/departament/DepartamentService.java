@@ -16,4 +16,6 @@ public interface DepartamentService {
     List<Employee> findEmployeeList(int departamentID);
 
     Map<Integer, List<Employee>> findEmployeeListByDepartament();
+
+    Double findAmountSalaryallEmployees(int departamentID);
 }

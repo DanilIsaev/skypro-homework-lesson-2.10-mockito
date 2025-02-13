@@ -58,4 +58,14 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .stream()
                 .collect(groupingBy(Employee::getDepartmentEmployee));
     }
+
+    @Override
+    public Double findAmountSalaryallEmployees(int departamentID) {
+        return employeeService
+                .findAll()
+                .stream()
+                .filter(e -> e.getDepartmentEmployee() == departamentID)
+                .mapToDouble(Employee::getSalaryEmployee)
+                .sum();
+    }
 }

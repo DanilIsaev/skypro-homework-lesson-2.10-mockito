@@ -14,22 +14,32 @@ public class DepartamentController {
         this.departamentService = departamentService;
     }
 
-    @GetMapping(path = "/departments/max-salary")
-    public String maxSalary(@RequestParam("departmentId") Integer departmentId) {
-        return departamentService.findEmployeeWithMaxSalary(departmentId).toString();
-    }
-
-    @GetMapping(path = "/departments/min-salary")
-    public String minSalary(@RequestParam("departmentId") Integer departmentId) {
-        return departamentService.findEmployeeWithMinSalary(departmentId).toString();
-    }
-
-    @GetMapping(path = "/departments/all/{departmentId}")
+    //возвращает список сотрудников по департаменту
+    @GetMapping(path = "/departments/{departmentId}/employees")
     public String findEmployeeList(@PathVariable("departmentId") Integer departmentId) {
         return departamentService.findEmployeeList(departmentId).toString();
     }
 
-    @GetMapping(path = "/departments/all")
+    //возвращает сумму зарплат по департаменту
+    @GetMapping(path = "/departments/{departmentId}/salary/sum")
+    public String findAmountSalaryAllEmployeesDepartament(@PathVariable("departmentId") Integer departmentId) {
+        return departamentService.findAmountSalaryallEmployees(departmentId).toString();
+    }
+
+    //возвращает максимальную зарплату по департаменту
+    @GetMapping(path = "/departments/{departmentId}/salary/max")
+    public String maxSalary(@PathVariable("departmentId") Integer departmentId) {
+        return departamentService.findEmployeeWithMaxSalary(departmentId).toString();
+    }
+
+    //возвращает минимальную зарплату по департаменту
+    @GetMapping(path = "/departments/{departmentId}/salary/min")
+    public String minSalary(@PathVariable("departmentId") Integer departmentId) {
+        return departamentService.findEmployeeWithMinSalary(departmentId).toString();
+    }
+
+    //возвращает сотрудников, сгруппированых по отделам
+    @GetMapping(path = "/departments/employees")
     public String findEmployeeListByDepartament() {
         return departamentService.findEmployeeListByDepartament().toString();
     }

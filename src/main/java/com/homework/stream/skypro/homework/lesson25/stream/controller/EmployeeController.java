@@ -1,5 +1,6 @@
-package com.homework.stream.skypro.homework.lesson25.stream.stream.employee;
+package com.homework.stream.skypro.homework.lesson25.stream.controller;
 
+import com.homework.stream.skypro.homework.lesson25.stream.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

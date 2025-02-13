@@ -1,14 +1,12 @@
-package com.homework.stream.skypro.homework.lesson25.stream.stream.departament;
+package com.homework.stream.skypro.homework.lesson25.stream.service;
 
 import com.homework.stream.skypro.homework.lesson25.stream.employee.Employee;
-import com.homework.stream.skypro.homework.lesson25.stream.stream.employee.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 import static java.util.Comparator.comparingDouble;
-import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 

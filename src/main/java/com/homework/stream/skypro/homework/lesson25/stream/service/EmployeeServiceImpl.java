@@ -17,7 +17,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             new Employee("oat", "oat", "oat", 2, 90000)
     ));
 
-
     @Override
     public Employee add(String nameEmployee, String surnameEmployee, String lastnameEmployee, int departmentEmployee, double salaryEmployee) {
         Employee employee = new Employee(surnameEmployee, nameEmployee, lastnameEmployee, departmentEmployee, salaryEmployee);
@@ -51,6 +50,4 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> findAll() {
         return Collections.unmodifiableList(employeeList);
     }
-
-
 }

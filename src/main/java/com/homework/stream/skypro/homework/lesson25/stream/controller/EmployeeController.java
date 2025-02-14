@@ -19,6 +19,7 @@ public class EmployeeController {
     }
 
     //localhost:8080/employee/add?name=wee&surname=try&lastname=fgh&departamentId=1&salary=150000
+    //Добавление сотрудника в лист сотрудников
     @GetMapping(path = "/employee/add")
     public String addEmployeeList(@RequestParam("name") String nameEmployee,
                                   @RequestParam("surname") String surnameEmployee,
@@ -29,12 +30,14 @@ public class EmployeeController {
     }
 
     //localhost:8080/employee/1/remove
+    //Удаление сотрудника из листа сотрудников
     @GetMapping(path = "/employee/{idemployee}/remove")
     public String removeEmployeeList(@PathVariable("idemployee") Integer idemployee) {
         return employeeService.remove(idemployee).toString();
     }
 
     //localhost:8080/employee/1/find
+    //Поиск сотрудника в листе сотрудников
     @GetMapping(path = "/employee/{idemployee}/find")
     public String findEmployeeList(@PathVariable("idemployee") Integer idemployee) {
         return employeeService.find(idemployee).toString();

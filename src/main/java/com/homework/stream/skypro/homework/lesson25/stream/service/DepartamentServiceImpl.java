@@ -39,7 +39,6 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .orElseThrow(RuntimeException::new);
     }
 
-
     @Override
     public List<Employee> findEmployeeList(int departamentID) {
         return employeeService

@@ -12,9 +12,9 @@ public interface EmployeeService {
                  int departmentEmployee,
                  double salaryEmployee);
 
-    Employee remove(int idEmployee);
+    Employee remove(String idEmployee);
 
-    Employee find(int idEmployee);
+    Employee find(String idEmployee);
 
     List<Employee> findAll();
 

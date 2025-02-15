@@ -7,8 +7,7 @@ public class Employee {
     private int departmentEmployee;
     private double salaryEmployee;
 
-    private final int idEmployee;
-    private static int idCounter = 0; // Счечик для выдачи id сотруднику
+    private final String idEmployee;
 
     public Employee(String surnameEmployee, String nameEmployee, String lastnameEmployee, int departmentEmployee, double salaryEmployee) {
         this.surnameEmployee = surnameEmployee;
@@ -22,8 +21,7 @@ public class Employee {
             throw new IllegalArgumentException("Зарплата не может быть отрицательной");
         }
         this.salaryEmployee = salaryEmployee;
-        this.idEmployee = idCounter;
-        idCounter++;
+        this.idEmployee = surnameEmployee + nameEmployee;
     }
 
     public String getNameEmployee() {
@@ -66,7 +64,7 @@ public class Employee {
         this.salaryEmployee = salaryEmployee;
     }
 
-    public int getIdEmployee() {
+    public String getIdEmployee() {
         return idEmployee;
     }
 
@@ -76,7 +74,7 @@ public class Employee {
             return false;
         }
         Employee comparisonEmployee = (Employee) other;
-        return idEmployee == comparisonEmployee.idEmployee; // return [свойство с типом строки].equals(comparisonEmployee.[свойство с типом строки или get]);
+        return idEmployee.equals(comparisonEmployee.idEmployee); // return [свойство с типом строки].equals(comparisonEmployee.[свойство с типом строки или get]);
     }
 
     @Override

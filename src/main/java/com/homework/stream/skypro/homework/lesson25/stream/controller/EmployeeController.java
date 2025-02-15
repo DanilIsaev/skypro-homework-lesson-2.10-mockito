@@ -29,17 +29,17 @@ public class EmployeeController {
         return employeeService.add(nameEmployee, surnameEmployee, lastnameEmployee, departmentEmployee, salaryEmployee).toString();
     }
 
-    //localhost:8080/employee/1/remove
+    //localhost:8080/employee/NatNat/remove
     //Удаление сотрудника из листа сотрудников
     @GetMapping(path = "/employee/{idemployee}/remove")
-    public String removeEmployeeList(@PathVariable("idemployee") Integer idemployee) {
+    public String removeEmployeeList(@PathVariable("idemployee") String idemployee) {
         return employeeService.remove(idemployee).toString();
     }
 
-    //localhost:8080/employee/1/find
+    //localhost:8080/employee/NatNat/find
     //Поиск сотрудника в листе сотрудников
     @GetMapping(path = "/employee/{idemployee}/find")
-    public String findEmployeeList(@PathVariable("idemployee") Integer idemployee) {
+    public String findEmployeeList(@PathVariable("idemployee") String idemployee) {
         return employeeService.find(idemployee).toString();
     }
 

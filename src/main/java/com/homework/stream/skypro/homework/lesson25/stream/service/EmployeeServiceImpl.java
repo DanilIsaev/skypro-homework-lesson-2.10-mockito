@@ -8,7 +8,7 @@ import java.util.*;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private List<Employee> employeeList = new ArrayList<Employee>(List.of(
+    private final List<Employee> employeeList = new ArrayList<Employee>(List.of(
             new Employee("Nat", "Nat", "Nat", 0, 30000.5),
             new Employee("tat", "tat", "tat", 1, 50000),
             new Employee("yat", "yat", "yat", 2, 60000.67),
@@ -26,10 +26,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
-    public Employee remove(int idEmployee) {
+    @Override
+    public Employee remove(String idEmployee) {
         Employee employee = employeeList
                 .stream()
-                .filter(e -> e.getIdEmployee() == idEmployee)
+                .filter(e -> e.getIdEmployee().equals(idEmployee))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
         employeeList.remove(employee);
@@ -37,13 +38,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee find(int idEmployee) {
-        Employee employee = employeeList
+    public Employee find(String idEmployee) {
+        return employeeList
                 .stream()
-                .filter(e -> e.getIdEmployee() == idEmployee)
+                .filter(e -> e.getIdEmployee().equals(idEmployee))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
-        return employee;
+
     }
 
     @Override

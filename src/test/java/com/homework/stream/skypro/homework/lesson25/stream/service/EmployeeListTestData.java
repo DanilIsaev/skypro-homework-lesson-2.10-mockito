@@ -23,4 +23,15 @@ public class EmployeeListTestData {
             new Employee("oat", "oat", "oat", 2, 90000),
             new Employee("ooo", "kkk", "ppp", 2, 60000)
     ));
+    public static final List<Employee> EMPLOYEE_LIST_AFTER_REMOVE = new ArrayList<Employee>(List.of(
+            new Employee("Nat", "Nat", "Nat", 0, 30000.5),
+            new Employee("tat", "tat", "tat", 1, 50000),
+            new Employee("yat", "yat", "yat", 2, 60000.67),
+            new Employee("uat", "uat", "uat", 0, 70000),
+            new Employee("iat", "iat", "iat", 1, 80000.56)
+            /*new Employee("oat", "oat", "oat", 2, 90000)*/
+    ));
+
+    public static final Employee RESULT_FIND_EMPLOYEE = new Employee("Nat", "Nat", "Nat", 0, 30000.5);
+
 }

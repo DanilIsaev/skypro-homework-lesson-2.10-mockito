@@ -1,6 +1,8 @@
 package com.homework.stream.skypro.homework.lesson25.stream.service;
 
 import com.homework.stream.skypro.homework.lesson25.stream.employee.Employee;
+import com.homework.stream.skypro.homework.lesson25.stream.exception.EmployeeExistsException;
+import com.homework.stream.skypro.homework.lesson25.stream.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -21,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee add(String nameEmployee, String surnameEmployee, String lastnameEmployee, int departmentEmployee, double salaryEmployee) {
         Employee employee = new Employee(surnameEmployee, nameEmployee, lastnameEmployee, departmentEmployee, salaryEmployee);
         if (employeeList.contains(employee))
-            throw new RuntimeException("Работник уже существует");
+            throw new EmployeeExistsException();
         employeeList.add(employee);
         return employee;
     }
@@ -32,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .stream()
                 .filter(e -> e.getIdEmployee().equals(idEmployee))
                 .findFirst()
-                .orElseThrow(NullPointerException::new);
+                .orElseThrow(EmployeeNotFoundException::new);
         employeeList.remove(employee);
         return employee;
     }
@@ -43,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .stream()
                 .filter(e -> e.getIdEmployee().equals(idEmployee))
                 .findFirst()
-                .orElseThrow(NullPointerException::new);
+                .orElseThrow(EmployeeNotFoundException::new);
 
     }
 

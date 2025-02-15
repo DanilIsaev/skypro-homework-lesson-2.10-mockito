@@ -34,4 +34,6 @@ public class EmployeeListTestData {
 
     public static final Employee RESULT_FIND_EMPLOYEE = new Employee("Nat", "Nat", "Nat", 0, 30000.5);
 
+    public static final String EMPLOYEE_NOT_FOUND = "ZXCZXC";
+
 }

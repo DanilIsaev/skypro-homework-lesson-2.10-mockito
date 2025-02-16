@@ -1,6 +1,7 @@
 package com.homework.stream.skypro.homework.lesson25.stream.service;
 
 import com.homework.stream.skypro.homework.lesson25.stream.employee.Employee;
+import com.homework.stream.skypro.homework.lesson25.stream.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .stream()
                 .filter(e -> e.getDepartmentEmployee() == departamentID)
                 .max(comparingDouble(Employee::getSalaryEmployee))
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .stream()
                 .filter(e -> e.getDepartmentEmployee() == departamentID)
                 .min(comparingDouble(Employee::getSalaryEmployee))
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override

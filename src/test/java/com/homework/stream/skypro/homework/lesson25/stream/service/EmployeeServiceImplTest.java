@@ -35,7 +35,7 @@ class EmployeeServiceImplTest {
 
     @Test
     void find() {
-        assertEquals(RESULT_FIND_EMPLOYEE, employeeService.find("NatNat"));
+        assertEquals(RESULT_FIND_EMPLOYEE, employeeService.find(DATA_FOR_FIND));
     }
 
     @Test

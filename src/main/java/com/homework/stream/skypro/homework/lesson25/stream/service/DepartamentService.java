@@ -1,11 +1,10 @@
-package com.homework.stream.skypro.homework.lesson25.stream.stream.departament;
+package com.homework.stream.skypro.homework.lesson25.stream.service;
 
 
 import com.homework.stream.skypro.homework.lesson25.stream.employee.Employee;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 public interface DepartamentService {
 
@@ -16,4 +15,6 @@ public interface DepartamentService {
     List<Employee> findEmployeeList(int departamentID);
 
     Map<Integer, List<Employee>> findEmployeeListByDepartament();
+
+    Double findAmountSalaryallEmployees(int departamentID);
 }

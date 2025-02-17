@@ -1,14 +1,13 @@
-package com.homework.stream.skypro.homework.lesson25.stream.stream.departament;
+package com.homework.stream.skypro.homework.lesson25.stream.service;
 
 import com.homework.stream.skypro.homework.lesson25.stream.employee.Employee;
-import com.homework.stream.skypro.homework.lesson25.stream.stream.employee.EmployeeService;
+import com.homework.stream.skypro.homework.lesson25.stream.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 import static java.util.Comparator.comparingDouble;
-import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
@@ -28,7 +27,7 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .stream()
                 .filter(e -> e.getDepartmentEmployee() == departamentID)
                 .max(comparingDouble(Employee::getSalaryEmployee))
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
@@ -38,9 +37,8 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .stream()
                 .filter(e -> e.getDepartmentEmployee() == departamentID)
                 .min(comparingDouble(Employee::getSalaryEmployee))
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(EmployeeNotFoundException::new);
     }
-
 
     @Override
     public List<Employee> findEmployeeList(int departamentID) {
@@ -57,5 +55,15 @@ public class DepartamentServiceImpl implements DepartamentService {
                 .findAll()
                 .stream()
                 .collect(groupingBy(Employee::getDepartmentEmployee));
+    }
+
+    @Override
+    public Double findAmountSalaryallEmployees(int departamentID) {
+        return employeeService
+                .findAll()
+                .stream()
+                .filter(e -> e.getDepartmentEmployee() == departamentID)
+                .mapToDouble(Employee::getSalaryEmployee)
+                .sum();
     }
 }
